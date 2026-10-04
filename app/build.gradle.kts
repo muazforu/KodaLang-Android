@@ -18,7 +18,7 @@ fun prop(name: String, default: String): String =
 
 android {
     namespace = "com.techinfotics.kodalang"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.techinfotics.kodalang"
