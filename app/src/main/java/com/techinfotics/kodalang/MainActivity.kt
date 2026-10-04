@@ -53,15 +53,16 @@ class MainActivity : ComponentActivity() {
 }
 
 /** Simple ViewModel factory that injects the app-scoped repositories. */
-@Suppress("UNCHECKED_CAST")
-fun <VM : ViewModel> kodaViewModel(
+@Composable
+inline fun <reified VM : ViewModel> kodaViewModel(
     key: String? = null,
-    create: (android.content.Context) -> VM,
+    crossinline create: (android.content.Context) -> VM,
 ): VM {
     val context = LocalContext.current
     return viewModel(
         key = key,
         factory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T =
                 create(context.applicationContext) as T
         },

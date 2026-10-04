@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
+import com.techinfotics.kodalang.BuildConfig
 
 /**
  * Opens a kodalang.com page in a Custom Tab (falls back to the browser).

@@ -55,6 +55,7 @@ import com.techinfotics.kodalang.data.AuthRepository
 import io.github.jan.supabase.postgrest.from
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.contentOrNull
@@ -146,10 +147,10 @@ class PracticeViewModel(context: Context) : ViewModel() {
         val row = Supa.client(appContext).from("conversations")
             .insert(
                 buildJsonObject {
-                    put("user_id", userId)
-                    put("title", title)
+                    put("user_id", JsonPrimitive(userId))
+                    put("title", JsonPrimitive(title))
                     // Same scenario format as the web client: "tutor|<level>|text|<topic>"
-                    put("scenario", "tutor||text|")
+                    put("scenario", JsonPrimitive("tutor||text|"))
                 }
             ) {
                 select()
