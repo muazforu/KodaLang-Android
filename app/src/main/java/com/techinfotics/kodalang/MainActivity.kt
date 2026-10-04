@@ -3,6 +3,7 @@ package com.techinfotics.kodalang
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChatBubble
@@ -151,7 +152,7 @@ private fun AppNav() {
 }
 
 @Composable
-private fun BottomNavItem(
+private fun RowScope.BottomNavItem(
     route: String,
     label: String,
     icon: androidx.compose.ui.graphics.vector.ImageVector,
